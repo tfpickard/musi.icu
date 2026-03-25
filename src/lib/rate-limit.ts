@@ -1,4 +1,4 @@
-import { kv } from "@vercel/kv";
+import { Redis } from "@upstash/redis";
 
 type RateLimitResult = {
   allowed: boolean;
@@ -12,23 +12,46 @@ type StoredCounter = {
 };
 
 const memoryStore = new Map<string, StoredCounter>();
+let redis: Redis | null = null;
 
 function nowSeconds() {
   return Math.floor(Date.now() / 1000);
 }
 
-function isKvConfigured() {
-  return Boolean(process.env.VERCEL_KV_REST_API_URL && process.env.VERCEL_KV_REST_API_TOKEN);
+function getRedisConfig() {
+  const url = process.env.UPSTASH_REDIS_REST_URL ?? process.env.VERCEL_KV_REST_API_URL;
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN ?? process.env.VERCEL_KV_REST_API_TOKEN;
+
+  if (!url || !token) {
+    return null;
+  }
+
+  return { url, token };
+}
+
+function getRedisClient() {
+  const config = getRedisConfig();
+
+  if (!config) {
+    return null;
+  }
+
+  if (!redis) {
+    redis = new Redis(config);
+  }
+
+  return redis;
 }
 
 export async function consumeRateLimit(key: string, limit: number, windowSeconds: number): Promise<RateLimitResult> {
   const resetAt = nowSeconds() + windowSeconds;
+  const redisClient = getRedisClient();
 
-  if (isKvConfigured()) {
-    const count = await kv.incr(key);
+  if (redisClient) {
+    const count = await redisClient.incr(key);
 
     if (count === 1) {
-      await kv.expire(key, windowSeconds);
+      await redisClient.expire(key, windowSeconds);
     }
 
     return {
