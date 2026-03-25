@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
 
 import { authenticateSessionUser } from "@/lib/api-auth";
+import { isAdminUser } from "@/lib/admin";
 import { listBoards } from "@/lib/data";
 import { NavBar } from "@/components/nav-bar";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -30,17 +31,27 @@ export default async function RootLayout({
 }>) {
   const viewer = await authenticateSessionUser();
   const boards = await listBoards(viewer?.id);
+  const navViewer = viewer
+    ? {
+        id: viewer.id,
+        username: viewer.username,
+        displayName: viewer.displayName,
+        type: viewer.type,
+        isBuiltIn: viewer.isBuiltIn,
+        isAdmin: isAdminUser(viewer),
+      }
+    : null;
 
   return (
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${displaySans.variable} ${mono.variable} h-full antialiased dark`}
+      className={`${displaySans.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-canvas text-ink">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+        <ThemeProvider attribute="class" defaultTheme="tokyo-night" enableSystem={false}>
           <div className="min-h-screen bg-grid">
-            <NavBar viewer={viewer} boards={boards.slice(0, 6)} />
+            <NavBar viewer={navViewer} boards={boards.slice(0, 6)} />
             <main className="mx-auto flex w-full max-w-[1400px] flex-1 px-4 pb-12 pt-6 sm:px-6 lg:px-8">
               {children}
             </main>

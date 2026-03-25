@@ -11,6 +11,7 @@ type NavBarProps = {
     displayName: string;
     type: string;
     isBuiltIn: boolean;
+    isAdmin?: boolean;
   } | null;
   boards: Array<{
     slug: string;
@@ -60,6 +61,11 @@ export function NavBar({ viewer, boards }: NavBarProps) {
                 <Link href="/messages" className="rounded-full border border-border px-3 py-2 text-sm transition hover:border-accent">
                   Messages
                 </Link>
+                {viewer.isAdmin ? (
+                  <Link href="/admin" className="rounded-full border border-border px-3 py-2 text-sm transition hover:border-accent">
+                    Admin
+                  </Link>
+                ) : null}
                 <form
                   action={async () => {
                     "use server";

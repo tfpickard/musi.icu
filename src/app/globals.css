@@ -1,17 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f4efe4;
-  --foreground: #161311;
-  --surface: rgba(255, 252, 247, 0.9);
-  --surface-strong: rgba(255, 248, 237, 0.98);
-  --border: rgba(54, 34, 20, 0.14);
-  --muted: #6f6256;
-  --accent: #b6502c;
-  --accent-soft: rgba(182, 80, 44, 0.12);
-  --secondary: #1e6f78;
-  --secondary-soft: rgba(30, 111, 120, 0.12);
-  --card-shadow: 0 18px 40px rgba(36, 20, 10, 0.08);
+  --background: #dce1f4;
+  --foreground: #1f2335;
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-strong: rgba(255, 255, 255, 0.92);
+  --border: rgba(47, 56, 89, 0.14);
+  --muted: #4c567a;
+  --accent: #2e7de9;
+  --accent-soft: rgba(46, 125, 233, 0.14);
+  --secondary: #9854f1;
+  --secondary-soft: rgba(152, 84, 241, 0.12);
+  --card-shadow: 0 24px 60px rgba(40, 52, 94, 0.12);
+  --glow-one: rgba(46, 125, 233, 0.18);
+  --glow-two: rgba(152, 84, 241, 0.14);
+  --grid-line: rgba(40, 52, 94, 0.08);
+  --button-highlight: #73a7f5;
+  color-scheme: light;
 }
 
 @theme inline {
@@ -31,26 +36,122 @@
   --font-mono: var(--font-mono);
 }
 
-.dark {
-  --background: #130f0f;
-  --foreground: #f3eee6;
-  --surface: rgba(25, 20, 20, 0.88);
-  --surface-strong: rgba(32, 25, 24, 0.96);
-  --border: rgba(240, 221, 196, 0.1);
-  --muted: #b8aa9b;
-  --accent: #f06c3d;
-  --accent-soft: rgba(240, 108, 61, 0.14);
-  --secondary: #64b6b8;
-  --secondary-soft: rgba(100, 182, 184, 0.14);
-  --card-shadow: 0 20px 45px rgba(0, 0, 0, 0.24);
+.tokyo-night {
+  --background: #0b1020;
+  --foreground: #dfe7ff;
+  --surface: rgba(19, 28, 53, 0.76);
+  --surface-strong: rgba(21, 30, 58, 0.92);
+  --border: rgba(122, 162, 247, 0.16);
+  --muted: #97a7cf;
+  --accent: #7aa2f7;
+  --accent-soft: rgba(122, 162, 247, 0.14);
+  --secondary: #bb9af7;
+  --secondary-soft: rgba(187, 154, 247, 0.14);
+  --card-shadow: 0 30px 70px rgba(5, 8, 17, 0.42);
+  --glow-one: rgba(122, 162, 247, 0.18);
+  --glow-two: rgba(187, 154, 247, 0.16);
+  --grid-line: rgba(122, 162, 247, 0.07);
+  --button-highlight: #9ab8ff;
+  color-scheme: dark;
+}
+
+.tokyo-day {
+  --background: #dce1f4;
+  --foreground: #1f2335;
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-strong: rgba(255, 255, 255, 0.92);
+  --border: rgba(47, 56, 89, 0.14);
+  --muted: #4c567a;
+  --accent: #2e7de9;
+  --accent-soft: rgba(46, 125, 233, 0.14);
+  --secondary: #9854f1;
+  --secondary-soft: rgba(152, 84, 241, 0.12);
+  --card-shadow: 0 24px 60px rgba(40, 52, 94, 0.12);
+  --glow-one: rgba(46, 125, 233, 0.18);
+  --glow-two: rgba(152, 84, 241, 0.14);
+  --grid-line: rgba(40, 52, 94, 0.08);
+  --button-highlight: #73a7f5;
+  color-scheme: light;
+}
+
+.synthwave {
+  --background: #13071f;
+  --foreground: #ffe9fb;
+  --surface: rgba(34, 14, 58, 0.8);
+  --surface-strong: rgba(42, 18, 71, 0.94);
+  --border: rgba(255, 77, 157, 0.2);
+  --muted: #d4b7ef;
+  --accent: #ff4d9d;
+  --accent-soft: rgba(255, 77, 157, 0.16);
+  --secondary: #5cf2ff;
+  --secondary-soft: rgba(92, 242, 255, 0.15);
+  --card-shadow: 0 32px 72px rgba(0, 0, 0, 0.4);
+  --glow-one: rgba(255, 77, 157, 0.22);
+  --glow-two: rgba(92, 242, 255, 0.16);
+  --grid-line: rgba(255, 119, 199, 0.08);
+  --button-highlight: #ff7abd;
+  color-scheme: dark;
+}
+
+.catppuccin {
+  --background: #1e1e2e;
+  --foreground: #cdd6f4;
+  --surface: rgba(49, 50, 68, 0.82);
+  --surface-strong: rgba(69, 71, 90, 0.94);
+  --border: rgba(180, 190, 254, 0.16);
+  --muted: #a6adc8;
+  --accent: #89b4fa;
+  --accent-soft: rgba(137, 180, 250, 0.16);
+  --secondary: #f5c2e7;
+  --secondary-soft: rgba(245, 194, 231, 0.14);
+  --card-shadow: 0 28px 64px rgba(10, 10, 18, 0.4);
+  --glow-one: rgba(137, 180, 250, 0.2);
+  --glow-two: rgba(245, 194, 231, 0.16);
+  --grid-line: rgba(180, 190, 254, 0.07);
+  --button-highlight: #b4befe;
+  color-scheme: dark;
+}
+
+.gruvbox {
+  --background: #1d2021;
+  --foreground: #ebdbb2;
+  --surface: rgba(40, 40, 40, 0.84);
+  --surface-strong: rgba(50, 48, 47, 0.95);
+  --border: rgba(250, 189, 47, 0.16);
+  --muted: #bdae93;
+  --accent: #d79921;
+  --accent-soft: rgba(215, 153, 33, 0.16);
+  --secondary: #cc241d;
+  --secondary-soft: rgba(204, 36, 29, 0.16);
+  --card-shadow: 0 28px 64px rgba(0, 0, 0, 0.38);
+  --glow-one: rgba(215, 153, 33, 0.18);
+  --glow-two: rgba(204, 36, 29, 0.16);
+  --grid-line: rgba(250, 189, 47, 0.07);
+  --button-highlight: #fabd2f;
+  color-scheme: dark;
+}
+
+.nord {
+  --background: #2e3440;
+  --foreground: #eceff4;
+  --surface: rgba(59, 66, 82, 0.84);
+  --surface-strong: rgba(67, 76, 94, 0.95);
+  --border: rgba(136, 192, 208, 0.16);
+  --muted: #d8dee9;
+  --accent: #88c0d0;
+  --accent-soft: rgba(136, 192, 208, 0.15);
+  --secondary: #5e81ac;
+  --secondary-soft: rgba(94, 129, 172, 0.16);
+  --card-shadow: 0 28px 64px rgba(12, 16, 25, 0.34);
+  --glow-one: rgba(136, 192, 208, 0.18);
+  --glow-two: rgba(94, 129, 172, 0.16);
+  --grid-line: rgba(216, 222, 233, 0.06);
+  --button-highlight: #8fbcbb;
+  color-scheme: dark;
 }
 
 * {
   border-color: var(--border);
-}
-
-html {
-  color-scheme: dark;
 }
 
 body {
@@ -73,11 +174,11 @@ textarea {
 
 .bg-grid {
   background-image:
-    radial-gradient(circle at top, rgba(240, 108, 61, 0.16), transparent 32%),
-    radial-gradient(circle at 85% 0%, rgba(100, 182, 184, 0.12), transparent 25%),
+    radial-gradient(circle at top, var(--glow-one), transparent 34%),
+    radial-gradient(circle at 85% 0%, var(--glow-two), transparent 26%),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.03), transparent 20%),
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size:
     auto,
     auto,
@@ -90,7 +191,7 @@ textarea {
   background: var(--surface);
   border: 1px solid var(--border);
   box-shadow: var(--card-shadow);
-  backdrop-filter: blur(18px);
+  backdrop-filter: blur(22px);
 }
 
 .panel-strong {
@@ -98,8 +199,8 @@ textarea {
 }
 
 .button-solid {
-  background: linear-gradient(135deg, var(--accent), #ef8b64);
-  color: #fff7f1;
+  background: linear-gradient(135deg, var(--accent), var(--button-highlight));
+  color: white;
 }
 
 .button-ghost {
@@ -126,4 +227,8 @@ textarea {
 
 .text-balance {
   text-wrap: balance;
+}
+
+summary::-webkit-details-marker {
+  display: none;
 }

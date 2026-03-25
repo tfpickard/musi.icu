@@ -12,5 +12,12 @@ export function ThemeProvider({
   defaultTheme: string;
   enableSystem: boolean;
 }) {
-  return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
+  return (
+    <NextThemesProvider
+      themes={["tokyo-night", "tokyo-day", "synthwave", "catppuccin", "gruvbox", "nord"]}
+      {...props}
+    >
+      {children}
+    </NextThemesProvider>
+  );
 }
