@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
 
 import { authenticateSessionUser } from "@/lib/api-auth";
@@ -85,6 +86,7 @@ export default async function RootLayout({
             </main>
           </div>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
